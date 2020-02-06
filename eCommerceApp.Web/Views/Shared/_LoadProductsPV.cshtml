@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Product>
+
+<div id="tab1" class="tab-pane active">
+    <div class="products-slick" data-nav="#slick-nav-1">
+        <!-- product -->
+        @foreach (var item in Model)
+        {
+            <div class="product">
+                <div class="product-img">
+                    <img src="~/productImages/@item.ImageUrl" alt="@item.Name">
+                    <div class="product-label">
+                        @if (item.DiscountedPrice != null)
+                        {
+                            <span class="sale">-30%</span>
+                        }
+                        else
+                        {
+                            <span class="new">NEW</span>
+                        }
+
+                    </div>
+                </div>
+                <div class="product-body">
+                    <p class="product-category">@item.Category.Name</p>
+                    <h3 class="product-name"><a href="#">@item.Brand.Name @item.Name</a></h3>
+                    <h4 class="product-price">
+                        $@item.Price
+                        @if (item.DiscountedPrice != null)
+                        {
+                            <del class="product-old-price">@item.DiscountedPrice</del>
+                        }
+
+                    </h4>
+                    @if (item.Rating != null)
+                    {
+                        <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    }
+
+                    <div class="product-btns">
+                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                        <a class="quick-view" asp-action="Product" asp-controller="ProductView" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                </div>
+            </div>
+        }
+        <!-- /product -->
+
+    </div>
+    <div id="slick-nav-1" class="products-slick-nav"></div>
+</div>

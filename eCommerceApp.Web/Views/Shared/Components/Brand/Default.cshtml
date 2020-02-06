@@ -1,0 +1,8 @@
+﻿@model SelectListItemViewModel
+
+<select class="form-control" asp-items="Model.SelectListBrand" name="BrandId" asp-for="Brand.Id">
+    <option value="">Brand name...</option>
+</select>
+<span asp-validation-for="Brand.Id" class="text-danger"></span>
+
+
