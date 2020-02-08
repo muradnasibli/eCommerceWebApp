@@ -115,6 +115,7 @@ namespace eCommerceApp.Web.Areas.Admin.Controllers
             product.Rating = model.Rating;
             product.CategoryId = model.CategoryId;
             product.BrandId = model.BrandId;
+            product.IsActive = model.IsActive;
             product.UpdateDate = DateTime.Now;
 
             if (model.Photo != null)
