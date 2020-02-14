@@ -213,10 +213,12 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
+                            
                             @foreach (var item in Model.Categories)
                             {
-                                <li><a data-toggle="tab" href="#tab2">@item.Name</a></li>
+                                <li>
+                                    <a data-toggle="tab" id="categoryId" href="@item.Id">@item.Name</a>
+                                </li>
                             }
                         </ul>
                     </div>
@@ -299,3 +301,10 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+@section Scripts{
+    <script>
+        $("#btnCat").click(function () {
+            alert("btn cliked");
+        });
+    </script>
+}
