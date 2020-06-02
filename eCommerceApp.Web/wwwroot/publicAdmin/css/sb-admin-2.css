@@ -12060,6 +12060,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .thumbnail {
-    width: 100%;
+
     height: auto;
+    width: auto;
+    
 }

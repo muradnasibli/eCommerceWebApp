@@ -134,7 +134,11 @@
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@item.Id" >
+                                                    <button class="add-to-cart-btn">
+                                                        <i class="fa fa-shopping-cart"></i>add to cart
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     }
@@ -213,7 +217,7 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            
+
                             @foreach (var item in Model.Categories)
                             {
                                 <li>

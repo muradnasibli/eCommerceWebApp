@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using eCommerceApp.DAL;
 using eCommerceApp.DAL.Repositories.Abstact;
 using eCommerceApp.DAL.Repositories.Concrete;
+using eCommerceApp.Web.Business.Abstract;
+using eCommerceApp.Web.Business.Concrete;
+using eCommerceApp.Web.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,6 +39,12 @@ namespace eCommerceApp.Web
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+
+            services.AddScoped<ICartService, CartManager>();
+            services.AddScoped<ICartSessionHelper, CartSessionHelper>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddSession();
             services.AddDbContext<CommerceContext>(x =>
             {
                 x.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
@@ -57,6 +66,7 @@ namespace eCommerceApp.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
