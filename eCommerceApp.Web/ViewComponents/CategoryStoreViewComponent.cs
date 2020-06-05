@@ -22,7 +22,8 @@ namespace eCommerceApp.Web.ViewComponents
         {
             CategoryListViewModel model = new CategoryListViewModel
             {
-                Categories = _repo.GetAll().ToList()
+                Categories = _repo.GetAll().ToList(),
+                CurrentCategory = Convert.ToInt32(HttpContext.Request.Query["category"])
             };
             return View(model);
         }

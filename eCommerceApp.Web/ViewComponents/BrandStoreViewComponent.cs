@@ -22,7 +22,8 @@ namespace eCommerceApp.Web.ViewComponents
         {
             BrandListViewModel model = new BrandListViewModel
             {
-                Brands = _repo.GetAll().ToList()
+                Brands = _repo.GetAll().ToList(),
+                CurrentBrand = Convert.ToInt32(HttpContext.Request.Query["brand"])                
             };
             return View(model);
         }

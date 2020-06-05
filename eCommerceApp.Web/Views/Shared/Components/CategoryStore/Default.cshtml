@@ -8,10 +8,10 @@
         @foreach (var item in Model.Categories)
         {
             <div class="input-checkbox">
-                <input type="checkbox" id="category-1">
-                <label for="category-1">
+                <input type="checkbox" id="category-@item.Id">
+                <label for="category-@item.Id">
                     <span></span>
-                    @item.Name
+                    <a href="/store/index?category=@item.Id">@item.Name</a>
                 </label>
             </div>
         }

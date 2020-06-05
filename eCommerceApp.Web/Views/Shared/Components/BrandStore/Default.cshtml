@@ -7,10 +7,10 @@
         @foreach (var item in Model.Brands)
         {
             <div class="input-checkbox">
-                <input type="checkbox" id="brand-1">
-                <label for="brand-1">
+                <input type="checkbox" id="brand-@item.Id">
+                <label for="brand-@item.Id">
                     <span></span>
-                    @item.Name
+                    <a href="/store/index?brand=@item.Id">@item.Name</a>
                 </label>
             </div>
         }
