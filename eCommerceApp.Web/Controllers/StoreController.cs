@@ -17,23 +17,17 @@ namespace eCommerceApp.Web.Controllers
             _repo = repo;
         }
 
-        //public IActionResult Index()
-        //{
-        //    var products = new ProductListViewModel
-        //    {
-        //        Products = _repo.GetAll().ToList()
-        //    };        
-        //    return View(products);
-        //}
-
-        public IActionResult Index(int category)
+        public IActionResult Index(int category, int brand)
         {
             var model = new ProductListViewModel
             {
-                Products = category > 0 ? _repo.GetAll().Where(x => x.CategoryId == category).ToList() : _repo.GetAll().ToList()
+                Products = category > 0 ? _repo.GetAll().Where(x => x.CategoryId == category).ToList() :
+                            brand > 0 ? _repo.GetAll().Where(x=> x.BrandId == brand).ToList() 
+                            : _repo.GetAll().ToList()
             };
 
             return View(model);
+            
         }
     }
 }
