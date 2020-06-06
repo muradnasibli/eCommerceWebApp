@@ -32,6 +32,7 @@ namespace eCommerceApp.Web.Controllers
             {
                 Products = category > 0 ? _repo.GetAll().Where(x => x.CategoryId == category).ToList() : _repo.GetAll().ToList()
             };
+
             return View(model);
         }
     }
