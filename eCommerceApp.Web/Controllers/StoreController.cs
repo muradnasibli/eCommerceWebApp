@@ -21,8 +21,8 @@ namespace eCommerceApp.Web.Controllers
         {
             var model = new ProductListViewModel
             {
-                Products = category > 0 ? _repo.GetAll().Where(x => x.CategoryId == category).ToList() :
-                            brand > 0 ? _repo.GetAll().Where(x=> x.BrandId == brand).ToList() :
+                Products = category > 0 ? _repo.GetAll().Where(x => x.CategoryId == category).ToList() : //by category id
+                            brand > 0 ? _repo.GetAll().Where(x=> x.BrandId == brand).ToList() : //by brand id
                             name != null ? _repo.GetWhere(x=> x.Name.Contains(name)).ToList() //search by name
                             : _repo.GetAll().ToList()
             };
