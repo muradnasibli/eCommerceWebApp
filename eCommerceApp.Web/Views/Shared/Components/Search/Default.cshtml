@@ -9,9 +9,11 @@
             }
         </select>
         <input class="input" placeholder="Search here" name="name">
-        <button class="search-btn">
-            <a asp-action="Index" asp-controller="Store">Search</a>
-        </button>
+
+        <a asp-action="Index" asp-controller="Store"> 
+            <button class="search-btn">Search</button>
+        </a>
+        
     </form>
 </div>
 @*href="/store/index?category=13"*@
