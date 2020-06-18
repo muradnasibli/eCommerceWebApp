@@ -34,7 +34,7 @@ namespace eCommerceApp.Web.Controllers
             return RedirectToAction("Index", "Home"); 
         }
 
-        public IActionResult RemoveFromCart(int productId)
+        public  IActionResult RemoveFromCart(int productId)
         {
             var product = _productRepo.GetById(productId);
             var cart = _cartSessionHelper.GetCart("cart");
