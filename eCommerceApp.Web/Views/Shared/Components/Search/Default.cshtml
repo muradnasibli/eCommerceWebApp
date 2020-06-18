@@ -1,11 +1,11 @@
 ﻿@model CategoryListViewModel
 <div class="header-search">
     <form asp-action="Index" asp-controller="Store">
-        <select class="input-select">
+        <select class="input-select" name="category">
             <option value="0">All Categories</option>
             @foreach (var item in Model.Categories)
             {
-                <option value="@item.Id">@item.Name</option>
+                <option value="@item.Id" >@item.Name</option>
             }
         </select>
         <input class="input" placeholder="Search here" name="name">
