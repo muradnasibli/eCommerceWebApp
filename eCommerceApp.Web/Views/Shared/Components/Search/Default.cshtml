@@ -1,0 +1,17 @@
+﻿@model CategoryListViewModel
+<div class="header-search">
+    <form asp-action="Index" asp-controller="Store">
+        <select class="input-select">
+            <option value="0">All Categories</option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <input class="input" placeholder="Search here" name="name">
+        <button class="search-btn">
+            <a asp-action="Index" asp-controller="Store">Search</a>
+        </button>
+    </form>
+</div>
+@*href="/store/index?category=13"*@
