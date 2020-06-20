@@ -26,12 +26,16 @@ namespace eCommerceApp.Web.Controllers
         
         public IActionResult Product(int id)
         {
-            var product = _unitOfWork.GetRepository<Product>().GetById(id);
+            var product = _unitOfWork.GetRepository<Product>().Include(x => x.Category, x=> x.Brand)
+                                                                            .Where(x => x.Id == id).FirstOrDefault();
+
             ProductEditViewModel model = new ProductEditViewModel()
             {
                 Id = product.Id,
                 BrandId = product.BrandId,
                 CategoryId = product.CategoryId,
+                Category = product.Category,
+                Brand = product.Brand,
                 Colour = product.Colour,
                 CreateDate = product.CreateDate,
                 Description = product.Description,

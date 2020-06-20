@@ -48,7 +48,7 @@
             <!-- Product details -->
             <div class="col-md-5">
                 <div class="product-details">
-                    <h2 class="product-name">@Model.Name</h2>
+                    <h2 class="product-name">@Model.Brand.Name @Model.Name</h2>
                     <div>
                         <div class="product-rating">
                             <i class="fa fa-star"></i>
@@ -83,27 +83,17 @@
                         </label>
                     </div>
 
-                    <div class="add-to-cart">
-                        <div class="qty-label">
-                            Qty
-                            <div class="input-number">
-                                <input type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                    <div class="add-to-cart">                       
+                        <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@Model.Id">
+                            <button class="add-to-cart-btn">
+                                <i class="fa fa-shopping-cart"></i>add to cart
+                            </button>
+                        </a>
                     </div>
-
-                    <ul class="product-btns">
-                        <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-                        <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-                    </ul>
 
                     <ul class="product-links">
                         <li>Category:</li>
-                        <li><a href="#">Headphones</a></li>
-                        <li><a href="#">Accessories</a></li>
+                        <li><a href="/store/index?category=@Model.CategoryId">@Model.Category.Name</a></li>
                     </ul>
 
                     <ul class="product-links">
