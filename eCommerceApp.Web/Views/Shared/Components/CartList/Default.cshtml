@@ -22,7 +22,7 @@
                     <img src="~/productImages/@item.Product.ImageUrl" alt="@item.Product.Name">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name"><a href="#">@item.Product.Name</a></h3>
+                    <h3 class="product-name"><a href="/productview/product/@item.Product.Id">@item.Product.Name</a></h3>
                     <h4 class="product-price"><span class="qty">@item.Quantity x</span>$@item.Product.Price</h4>
                 </div>
                 <a asp-action="RemoveFromCart" asp-controller="Cart" asp-route-productId="@item.Product.Id">
